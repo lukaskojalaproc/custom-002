@@ -44,8 +44,8 @@ demo duomenys atkuriami** – kitas pristatymas prasideda nuo švaraus lapo.
 4. **Ports Exposes: `80`**, nurodykite domeną (pvz., `demo.procfly.com`) – Coolify automatiškai sukurs SSL sertifikatą.
 5. **Deploy**. Kiekvienas `git push` gali automatiškai perdiegti (įjunkite *Auto Deploy*).
 
-Alternatyva be Docker: *Build Pack: Nixpacks*, pažymėti **Is it a static site?**, Build command `npm run build`,
-Publish directory `dist`.
+> **Svarbu:** naudokite *Build Pack: Dockerfile*, ne *Nixpacks*. Nixpacks diegia Node 22.11, o Vite 8 reikalauja
+> Node ≥ 22.12 – build'as nepavyks. Build Pack keičiamas: *Configuration → General → Build Pack*.
 
 Nuoroda klientui gali būti su `?demo` (pvz., `https://demo.procfly.com/?demo`) – tada prisijungimo langas praleidžiamas.
 

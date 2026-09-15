@@ -1,8 +1,9 @@
-# Build stage
-FROM node:24-alpine AS build
+# Build stage – Debian (glibc) so Vite 8 / Rolldown native bindings install cleanly.
+# Requires Node >= 22.12 (Vite 8), so don't use Coolify's Nixpacks build pack (it ships Node 22.11).
+FROM node:24-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --include=dev --include=optional
 COPY . .
 RUN npm run build
 
